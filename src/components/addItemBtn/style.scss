@@ -1,0 +1,19 @@
+@import '../../color.scss';
+
+.addBtn {
+    position: fixed;
+    bottom: 15%;
+    right: 25%;
+    button {
+        width: 50px;
+        height: 50px;
+        background: $color-primary;
+        border: none;
+        border-radius: 100%;
+        cursor: pointer;
+    }
+    @media (max-width: 1290px) {
+        bottom: 20px;
+        right: 20px;
+      }
+}

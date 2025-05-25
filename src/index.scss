@@ -1,0 +1,75 @@
+@import './color.scss';
+
+:root {
+  font-family: 'Kanit', sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  --color-dark: #{$color-dark};
+  --color-light: #{$color-light};
+  --color-primary: #{$color-primary};
+
+  --bg-color: var(--color-light);
+  --text-color: var(--color-dark);
+}
+
+[data-theme='dark'] {
+  --bg-color: var(--color-dark);
+  --text-color: var(--color-light);
+}
+
+body {
+  margin: 40px 0 0 0;
+  padding: 0 1rem;
+  display: flex;
+  flex-direction: column;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+
+  background-color: var(--bg-color);
+  color: var(--text-color);
+
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+a {
+  font-weight: 500;
+  color: var(--color-primary);
+  text-decoration: inherit;
+}
+
+h1 {
+  font-size: 26px;
+  font-weight: 500;
+  line-height: 1.1;
+  margin: 0;
+}
+
+.input {
+  border: 1px solid var(--color-primary);
+  color: var(--color-primary);
+  font-size: 16px;
+  border-radius: 5px;
+  padding-left: 16px;
+  outline: none;
+}
+
+.input:focus {
+  box-shadow: 0 0 0 3px (var(--color-primary), 40%);
+}
+
+.input::placeholder {
+  color: #C3C1E5;
+  font-size: 16px;
+}
+.error {
+  text-align: center;
+}
+#root {
+  max-width: 750px;
+}

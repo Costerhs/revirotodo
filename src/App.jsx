@@ -1,34 +1,30 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useEffect, useState } from 'react'
+import Modal from './components/modal/Modal'
+import Header from './components/header/Header'
+import TodoList from './components/todolist/TodoList'
+import { loadTasks } from './assets/localStorageManager'
+import AddItemBtn from './components/addItemBtn/AddItemBtn'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [modalStatus,setModalStatus] = useState(false)
+  const [tasks,setTasks] = useState([])
+
+
+  useEffect(() => {
+    setTasks(loadTasks())
+  },[])
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <div className='app'>
+      <Header setTasks={setTasks} tasks={tasks} modalStatus={modalStatus} setModalStatus={setModalStatus}/>
+      {tasks.length >= 1 ? <TodoList tasks={tasks} setTasks={setTasks}/> : 
+        <div className='error'>
+          <img src='https://to-do-app-dimad10s-projects.vercel.app/static/media/img1.e03a41ff834cf09ee448.png' />
+          <p>Empty...</p>
+        </div>}
+      <Modal modalStatus={modalStatus} setModalStatus={setModalStatus} setTasks={setTasks}/>
+      <AddItemBtn modalStatus={modalStatus} setModalStatus={setModalStatus}/>
+    </div>
   )
 }
 

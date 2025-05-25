@@ -1,0 +1,114 @@
+@import '../../color.scss';
+
+.todoItem {
+    width: 525px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-size: 20px;
+    border-bottom: 1px solid $color-primary;
+    padding: 0px 6px;
+    .info {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        .checkboxBlock {
+            position: relative;
+            display: flex;
+            .checkbox {
+                width: 23px;
+                height: 23px;
+                border: 1px solid $color-primary;
+                border-radius: 2px;
+                appearance: none;
+                -webkit-appearance: none;
+                cursor: pointer;
+                &:checked {
+                    background: $color-primary;
+                }
+            }
+            img {
+                position: absolute;
+                top: 38%;
+                left: 10%;
+                pointer-events: none;
+            }
+        }
+        input {
+            border: none;
+            font-size: 20px;
+            outline: none;
+            margin: 20px 0;
+            padding: 0;
+            font-family: 'Kanit', sans-serif;
+        }
+        p{
+            max-width: 300px;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            white-space: normal; 
+            max-width: 450px;
+        }
+    }
+    .buttons {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        gap: 10px;
+        button {
+            width: 18px;
+            height: 18px;
+            background:none;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .delete {
+            position: relative;
+            img {
+                position: absolute;
+                top: 25%;
+            }
+            .deleteActiveIcon {
+                opacity: 0;
+            }
+            &:hover {
+                .deleteActiveIcon {
+                    opacity: 1;
+                }
+                .deleteIcon {
+                    opacity:0;
+                }
+            }
+        }
+        .change {
+            position: relative;
+            img {
+                position: absolute;
+                top: 25%;
+            }
+            .penActiveIcon {
+                opacity: 0;
+            }
+            &:hover {
+                .penActiveIcon {
+                    opacity: 1;
+                }
+                .penIcon {
+                    opacity:0;
+                }
+            }
+        }
+    }
+    @media (max-width: 760px) {
+        width:auto;
+        .info {
+            p {
+                width: 200px;
+            }
+        }
+    }
+}

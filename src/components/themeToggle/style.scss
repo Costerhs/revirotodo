@@ -1,0 +1,11 @@
+@import '../../color.scss';
+
+.toggleBtn {
+    background: $color-primary;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    img {
+        padding: 8px;
+    }
+}

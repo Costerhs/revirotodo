@@ -1,0 +1,98 @@
+@import '../../color.scss';
+
+.header {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+
+  .list {
+    display: flex;
+    gap: 16px;
+    // flex-wrap: wrap;
+    justify-content: center;
+
+    .searchBlock {
+      position: relative;
+      width: 100%;
+      max-width: 511px;
+
+      input {
+        width: 100%;
+        height: 40px;
+        border: 1px solid $color-primary;
+        color: $color-primary;
+        font-size: 16px;
+        border-radius: 5px;
+        padding-left: 16px;
+        outline: none;
+        box-sizing: border-box;
+
+        &:focus {
+          box-shadow: 0 0 0 3px #c4c1ff;
+        }
+
+        &::placeholder {
+          color: #C3C1E5;
+          font-size: 16px;
+        }
+      }
+
+      img {
+        position: absolute;
+        right: 10px;
+        top: 25%;
+      }
+    }
+
+    select {
+      background-color: $color-primary;
+      border-radius: 5px;
+      color: $color-light;
+      font-size: 18px;
+      font-weight: bold;
+      width: 85px;
+      padding: 10px;
+      box-sizing: border-box;
+
+      option {
+        border-radius: 5px;
+      }
+    }
+    .addTask {
+      display: none;
+    }
+  }
+
+  @media (max-width: 760px) {
+    .list {
+      gap: 20px;
+      flex-direction: column;
+
+      .searchBlock {
+        width: 100%;
+        max-width: none;
+
+        input {
+          width: 100%;
+        }
+      }
+
+      select {
+        width: 100%;
+        text-align: center;
+      }
+      .addTask {
+        display: flex;
+        background: $color-primary;
+        text-align: center;
+        justify-content: center;
+        color: $color-light;
+        padding: 8px;
+        font-weight: bold;
+        border: none;
+        border-radius: 5px;
+      }
+    }
+  }
+}
