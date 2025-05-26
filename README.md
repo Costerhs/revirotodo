@@ -4,7 +4,7 @@
 🚀 Инструкции по запуску локально
 Клонируйте репозиторий:
 git clone https://github.com/Costerhs/revirotodo.git
-cd my-app
+cd revirotodo
 
 Установите зависимости:
 npm install
